@@ -4,14 +4,14 @@ name: Schedule Thursday 1100
 # Run this action at 11:00 (3 am Pacific) on the first Thursday of the month.
 on:
   schedule:
-    - cron:  * * * * *
+    - cron:  41,42,43,44,45,46 * * * *
 
 jobs:
   # This workflow contains a single job called "trim_contirbutors"
   trim_contributors:
     runs-on: ubuntu-latest
 
-    if: github.repository == 'hackforla/website'
+    if: github.repository == 'luke-karis/website'
 
     steps:
     # get the day number of the current month
