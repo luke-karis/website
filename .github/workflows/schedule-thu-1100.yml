@@ -11,7 +11,7 @@ jobs:
   trim_contributors:
     runs-on: ubuntu-latest
 
-    #if: github.repository == 'hackforla/website'
+    if: github.repository == 'hackforla/website'
 
     steps:
     # get the day number of the current month
@@ -38,8 +38,8 @@ jobs:
       working-directory: ./github-actions/trigger-schedule/trim-contributors
 
     # run js file if it is the first Thursday of the month
-    #Removed       if: ${{ steps.date.outputs.date <= 7 }} from between token and run
     - name: Trim Members
       env:
         token: ${{ secrets.HACKFORLA_BOT_PA_TOKEN }}
+      if: ${{ steps.date.outputs.date <= 7 }} from between token and run
       run: node github-actions/github-data/contributors-data.js
